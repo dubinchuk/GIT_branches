@@ -1,0 +1,91 @@
+1. На локальном репозитории сделать ветки для:
+- Postman
+- Jmeter
+- CheckLists
+- Bug Reports
+- SQL
+- Charles
+- Mobile testing
+
+Создать через веб-интерфейс внешний репозиторий c названием GIT_branches 
+Клонировать на локальный репозиторий: git clone (вставляем ссылку на внешний репозиторий путём копирования из Code - HTTPS)
+Перейти в клонированный репозиторий: cd GIT_branches
+Создать ветки:
+git branch Postman
+git branch Jmeter
+git branch CheckLists
+git branch Bug_Reports
+git branch SQL
+git branch Charles
+git branch Mobile_testing
+
+2. Запушить все ветки на внешний репозиторий
+
+git push -u --all
+
+3. В ветке Bag Reports сделать текстовый документ со структурой баг репорта
+
+git checkout Bug_Reports
+vim bug_report_template.txt
+i
+
+Bug ID:
+Title:
+Description:
+Created by:
+Owner:
+Project:
+Version:
+Environment:
+Severity:
+Priority:
+Status:
+Steps to reproduce:
+Expected result:
+Actual result:
+Attachments:
+
+Esc:wq
+
+4. Запушить структуру багрепорта на внешний репозиторий
+
+git add . && git commit -m "bug report template added" && git push
+
+5. Вмержить ветку Bag Reports в Main
+
+git checkout main
+git merge Bug_Reports
+
+6. Запушить main на внешний репозиторий.
+
+git push
+
+7. В ветке CheckLists набросать структуру чек листа.
+
+git checkout CheckLists
+vim checklist_template.txt
+
+ID:
+Title:
+Tester Actions:
+Expected Result:
+Actual Result:
+Comment:
+Esc:wq
+
+8. Запушить структуру на внешний репозиторий
+
+git add . && git commit -m "checklist template added" && git push
+
+9. На внешнем репозитории сделать Pull Request ветки CheckLists в main
+
+В репозитории Git_branches перейти в ветку CheckLists
+Кликнуть на кнопку "Compare & pull request"
+Кликнуть на кнопку "Create pull request"
+Кликнуть на кнопку "Merge pull request" 
+Кликнуть на кнопку "Confirm merge"
+
+10. Синхронизировать Внешнюю и Локальную ветки Main
+
+git checkout main
+git pull
